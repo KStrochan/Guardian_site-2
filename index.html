@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Ясний поліс, команда страхових агентів</title>
+<meta name="description" content="Команда страхових агентів: ОСЦПВ, КАСКО, страхування майна та виїзду за кордон. Порівнюємо пропозиції страхових компаній і підбираємо поліс під ваш випадок.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3 27 7v9c0 8-6 12-11 13-5-1-11-5-11-13V7z' fill='%231B4332'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/styles.css">
+<noscript>
+  <style>
+    /* Без JavaScript гамбургер нічого не відкриє, тому пункти меню стоять під шапкою готовим блоком */
+    #menu-btn { display: none; }
+    .mobile-nav { max-height: none; visibility: visible; overflow: visible; border-bottom-width: 1px; }
+    .mobile-nav-inner > * { opacity: 1; transform: none; transition: none; }
+    @media (max-width: 1279px) { .top { position: relative; } }
+  </style>
+</noscript>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-logo" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 3l7 2.8v5.4c0 4.7-2.9 8.2-7 9.8-4.1-1.6-7-5.1-7-9.8V5.8z"/>
+    <path fill="none" style="stroke:var(--bg, #fff)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M8.8 12.1l2.2 2.2 4.3-4.4"/>
+  </symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13.5 6.5L19 12l-5.5 5.5"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20.5 4L3.5 11.2l5.8 2.2L11.6 20l3.2-4.7 4.2 3.2zM9.3 13.4L20.5 4"/></symbol>
+</svg>
+
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+<a class="skip" href="#main">Перейти до змісту</a>
+
+<header class="top" id="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#top">
+      <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false"><path d="M16 3 27 7v9c0 8-6 12-11 13-5-1-11-5-11-13V7z" fill="currentColor"/><path class="logo-check" d="M11 16.5 14.5 20 21 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span data-bind="agency.name">Ясний поліс</span>
+    </a>
+    <nav class="nav-links" aria-label="Основна навігація">
+      <a href="#quiz">Підбір</a>
+      <a href="#services">Послуги</a>
+      <a href="#process">Як це працює</a>
+      <a href="#why">Про нас</a>
+      <a href="#faq">Питання</a>
+      <a href="#form">Контакти</a>
+    </nav>
+    <div class="top__tools">
+      <span class="status" data-status data-open="false" hidden><i aria-hidden="true"></i><span data-status-short>Перевіряємо</span><span data-status-full>Перевіряємо</span></span>
+      <a class="phone-link" href="tel:+380937286075">+380 93 728 60 75</a>
+      <a class="btn top__cta" href="#form" data-lead="">Залишити заявку</a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Відкрити меню" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Мобільна навігація">
+    <div class="mobile-nav-inner">
+      <a href="#quiz">Підбір</a>
+      <a href="#services">Послуги</a>
+      <a href="#process">Як це працює</a>
+      <a href="#why">Про нас</a>
+      <a href="#faq">Питання</a>
+      <a href="#form">Контакти</a>
+      <span class="status" data-status data-open="false" hidden><i aria-hidden="true"></i><span data-status-short>Перевіряємо</span><span data-status-full>Перевіряємо</span></span>
+      <a class="btn" href="#form" data-lead="">Залишити заявку</a>
+      <a class="phone-link" href="tel:+380937286075">+380 93 728 60 75</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+
+  <section class="hero" id="hero" aria-labelledby="heroTitle" data-quiz="open">
+    <div class="wrap hero__grid">
+
+      <!-- Ліва колонка: на телефоні розпадається (display: contents), щоб картка підбору стояла між кнопками й фактами -->
+      <div class="hero__left">
+        <div class="hero__text">
+          <h1 id="heroTitle" data-content="hero.title">Захист, який не підводить у важливу мить</h1>
+          <!-- Підзаголовок і факти лежать у розмітці готовими: без JavaScript вони видно. JS перезаписує їх тим самим текстом із js/content.js -->
+          <p class="hero__lead" data-content="hero.lead">Наша команда страхових агентів. Порівнюємо пропозиції кількох страхових компаній і підбираємо поліс, що відповідає вашій ситуації. Перший-ліпший варіант ми не продаємо.</p>
+          <div class="hero__actions">
+            <a class="btn" href="#quiz">Підібрати поліс</a>
+            <a class="btn btn-ghost" href="tel:+380937286075" data-tel>Зателефонувати</a>
+          </div>
+        </div>
+
+        <div class="hero__facts-wrap">
+          <div class="hero__facts" id="heroFacts"><div class="fact"><b>4</b><span>питання, щоб підібрати поліс</span></div><div class="fact"><b>0 ₴</b><span>за підбір і консультацію</span></div><div class="fact"><b>Пн-Пт</b><span>9:00 до 18:00</span></div></div>
+        </div>
+      </div>
+
+      <div class="hero__quiz">
+        <section class="quiz" id="quiz" aria-labelledby="quizTitle" tabindex="-1">
+          <div class="quiz__shield" id="quizShield" aria-hidden="true"></div>
+          <div class="quiz__head">
+            <h2 id="quizTitle" data-content="quiz.title">Підбір поліса</h2>
+            <span class="pill">Загальний орієнтир</span>
+          </div>
+          <noscript><p class="quiz__nojs">Для підбору потрібен увімкнений JavaScript. Без нього зателефонуйте нам: <a href="tel:+380937286075">+380 93 728 60 75</a>, або напишіть у <a href="https://t.me/KStrochan">Telegram</a>.</p></noscript>
+          <div class="quiz__prog" id="quizProg" hidden>
+            <span class="label" id="quizStepLabel">Питання 1 із 4</span>
+            <span class="quiz__bar" aria-hidden="true"><i id="quizBar"></i></span>
+          </div>
+          <div class="quiz__stage" id="quizStage"></div>
+          <div class="quiz__nav" id="quizNav"></div>
+          <p class="quiz__note" data-content="footerNote"></p>
+        </section>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Послуги: п’ять карток малює js/app.js із js/content.js (products) перед шостою клітинкою -->
+  <section class="section" id="services" aria-labelledby="servicesTitle">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2 id="servicesTitle">Види страхування</h2>
+        <p class="section-lede">Працюємо з кількома страховими компаніями одночасно, тому підбираємо умови під ваш випадок. Єдиний варіант ми не пропонуємо.</p>
+      </div>
+      <div class="services-grid" id="servicesGrid">
+        <article class="service service--quiz reveal">
+          <span class="service__icon" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="12" cy="12" r="8.6"/><path d="M9.7 9.7a2.4 2.4 0 1 1 3.3 2.2c-.6.3-1 .8-1 1.4v.5"/><circle cx="12" cy="16.4" r=".55" fill="currentColor"/></svg></span>
+          <span class="service__kind">Загальний орієнтир</span>
+          <h3>Не знаєте, що обрати?</h3>
+          <p>Дайте відповідь на чотири питання, і підбір підкаже, який поліс вам підійде.</p>
+          <div class="service__foot"><a class="btn btn-sm" href="#quiz" data-open-quiz>Пройти підбір</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="process" aria-labelledby="processTitle">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2 id="processTitle">Як це працює</h2>
+        <p class="section-lede">Від заявки до поліса вас чекають чотири кроки, без зайвої бюрократії з вашого боку.</p>
+      </div>
+      <ol class="steps" id="steps"></ol>
+    </div>
+  </section>
+
+  <section class="section" id="why" aria-labelledby="whyTitle">
+    <div class="wrap why-grid">
+      <div class="why-intro">
+        <h2 id="whyTitle">Про нас</h2>
+        <!-- Цитата вже записана в content.js разом із лапками «» -->
+        <blockquote class="why-quote reveal"><p data-content="about.quote">«Наше завдання полягає в тому, щоб ви розуміли, за що платите, і отримали виплату, коли вона дійсно знадобиться.»</p></blockquote>
+      </div>
+      <ul class="why-list" id="whyList"></ul>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="dtp" aria-labelledby="dtpTitle">
+    <div class="wrap dtp">
+      <div class="dtp__intro reveal">
+        <h2 id="dtpTitle" data-content="dtp.title">Якщо трапилась ДТП</h2>
+        <p class="section-lede" data-content="dtp.lead">Коротка пам’ятка, яку варто мати під рукою. Деталі залежать від вашого поліса, тож після всього зателефонуйте нам.</p>
+        <a class="btn btn-ghost" href="tel:+380937286075" data-tel>Зателефонувати</a>
+      </div>
+      <ol class="dtp__steps" id="dtpSteps"></ol>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faqTitle">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2 id="faqTitle">Часті запитання</h2>
+        <p class="section-lede">Якщо тут немає відповіді на ваше питання, просто напишіть чи зателефонуйте.</p>
+      </div>
+      <!-- Розмітка Guardian (.faq-item, .faq-q, .faq-a). Відповіді поки відкриті, згортання додасть js/fx.js -->
+      <div class="faq-list" id="faqList"></div>
+    </div>
+  </section>
+
+  <!-- Контакти й заявка: сосновий фон, ліворуч заголовок і три пункти, праворуч форма-квитанція -->
+  <section class="section form-section" id="form" aria-labelledby="formTitle">
+    <div class="wrap form-grid">
+      <div class="form-intro reveal">
+        <h2 id="formTitle">Залишити заявку</h2>
+        <p class="section-lede" data-content="formLead">Заповніть форму, і ми зателефонуємо вам, щоб уточнити деталі й підібрати варіанти.</p>
+        <ul class="form-points" id="formPoints">
+          <li>Відповідаємо протягом робочого дня</li>
+          <li>Консультація нічого не коштує</li>
+          <li>Персональні дані нікому не передаються</li>
+        </ul>
+        <dl class="form-contacts">
+          <div><dt>Телефон</dt><dd><a href="tel:+380937286075" data-tel data-bind="agency.phone">+380 93 728 60 75</a></dd></div>
+          <div><dt>Telegram</dt><dd><a href="https://t.me/KStrochan" data-tg>@KStrochan</a></dd></div>
+        </dl>
+      </div>
+
+      <div class="receipt reveal" id="receipt">
+        <div class="receipt__head">
+          <p class="receipt__brand"><svg aria-hidden="true" focusable="false"><use href="#i-logo"/></svg><span data-bind="agency.name">Ясний поліс</span></p>
+          <p class="receipt__meta">Заявка на консультацію</p>
+        </div>
+
+        <noscript><p class="receipt__nojs">Для заявки потрібен увімкнений JavaScript. Без нього зателефонуйте нам: <a href="tel:+380937286075">+380 93 728 60 75</a>, або напишіть у Telegram: <a href="https://t.me/KStrochan">t.me/KStrochan</a>.</p></noscript>
+
+        <!-- Без скрипта форма прихована: так вона нічого не відправить і не покладе ім’я й телефон в адресу сторінки -->
+        <form class="lead-form" id="leadForm" novalidate aria-labelledby="formTitle" hidden>
+          <div class="receipt__body" id="formView">
+            <div class="chosen" id="chosen" hidden>
+              <div class="chosen__row"><span class="label">Ваш підбір</span><span class="chosen__res" id="chosenRes"></span></div>
+              <p id="chosenText"></p>
+              <a href="#quiz" id="chosenEdit">Змінити відповіді</a>
+            </div>
+
+            <div class="field">
+              <label class="label" for="f-product">Вид страхування</label>
+              <select class="input" id="f-product" name="product" aria-describedby="e-product"></select>
+              <p class="err" id="e-product" hidden></p>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label class="label" for="f-name">Ім’я</label>
+                <input class="input" id="f-name" name="name" type="text" autocomplete="name" maxlength="100" aria-describedby="e-name">
+                <p class="err" id="e-name" hidden></p>
+              </div>
+              <div class="field">
+                <label class="label" for="f-phone">Телефон</label>
+                <input class="input" id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="30" placeholder="+380 XX XXX XX XX" aria-describedby="e-phone">
+                <p class="err" id="e-phone" hidden></p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label" for="f-when">Коли передзвонити</label>
+              <select class="input" id="f-when" name="when" aria-describedby="e-when whenHint"></select>
+              <p class="err" id="e-when" hidden></p>
+              <p class="hint" id="whenHint"></p>
+            </div>
+
+            <fieldset class="field fieldset">
+              <legend class="label">Як зв’язатися</legend>
+              <div class="seg" id="segChannel"></div>
+            </fieldset>
+
+            <div class="field">
+              <label class="label" for="f-comment">Коментар (необов’язково)</label>
+              <textarea class="input" id="f-comment" name="comment" maxlength="300" placeholder="Марка авто, адреса об’єкта, дата поїздки тощо"></textarea>
+            </div>
+
+            <div class="receipt__total">
+              <div class="field">
+                <label class="check" id="consentWrap">
+                  <input type="checkbox" id="f-consent" name="consent" aria-describedby="e-consent">
+                  <span>Погоджуюсь на обробку персональних даних для зв’язку щодо страхування.</span>
+                </label>
+                <p class="err" id="e-consent" hidden></p>
+              </div>
+              <!-- Пастка для ботів: людина цього поля не бачить і не потрапляє в нього клавішею Tab -->
+              <div class="hp" aria-hidden="true"><label for="f-hp">Не заповнюйте це поле</label><input type="text" id="f-hp" name="website" tabindex="-1" autocomplete="off"></div>
+              <p class="err form-err" id="formErr" role="alert" hidden></p>
+              <button class="btn btn-block" id="submitBtn" type="submit">Надіслати заявку</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Успіх, збій або перегляд. Вміст складає js/app.js -->
+        <div class="receipt__body" id="doneView" hidden></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__row">
+      <a class="logo" href="#top">
+        <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false"><path d="M16 3 27 7v9c0 8-6 12-11 13-5-1-11-5-11-13V7z" fill="currentColor"/><path class="logo-check" d="M11 16.5 14.5 20 21 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span data-bind="agency.name">Ясний поліс</span>
+      </a>
+      <!-- Телефон і Telegram стоять у розмітці готовими: без JavaScript їх теж видно -->
+      <ul class="foot__links">
+        <li><a href="tel:+380937286075" data-tel data-bind="agency.phone">+380 93 728 60 75</a></li>
+        <li><span data-bind="agency.city">Стрий</span></li>
+        <li><a href="https://t.me/KStrochan" data-tg target="_blank" rel="noopener">Telegram @KStrochan</a></li>
+      </ul>
+    </div>
+    <p class="foot__fine">© 2026 Ясний поліс. Усі права захищено. Персональні дані не передаються третім особам.</p>
+    <p class="foot__note" data-content="footerNote">Підбір дає загальний орієнтир і не є пропозицією страхування</p>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Нагору"><svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></button>
+
+<aside class="dock" id="dock" aria-label="Підбір поліса">
+  <div class="dock__in">
+    <div class="dock__txt"><span id="dockLabel">Підбір поліса</span><b id="dockTitle"></b></div>
+    <button class="btn btn-sm" type="button" id="dockBtn">Підібрати</button>
+  </div>
+</aside>
+
+<script src="js/config.js"></script>
+<script src="js/content.js"></script>
+<script src="js/art.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/hours.js"></script>
+<script src="js/lead.js"></script>
+<script src="js/app.js"></script>
+<script src="js/fx.js"></script>
+</body>
+</html>
